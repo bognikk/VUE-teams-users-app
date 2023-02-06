@@ -57,7 +57,8 @@ header {
 					box-sizing: border-box;
 
 					&:hover,
-					&:active {
+					&:active,
+					&.active-router {
 						outline: 2px solid #000;
 						color: #000;
 					}
