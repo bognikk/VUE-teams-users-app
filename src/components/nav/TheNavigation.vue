@@ -3,25 +3,27 @@
 		<nav>
 			<ul>
 				<li>
-					<button @click="setActivePage('teams-list')">Teams</button>
+					<!-- <button @click="setActivePage('teams-list')">Teams</button> -->
+					<router-link to="/teams">Teams</router-link>
 				</li>
 				<li>
-					<button @click="setActivePage('users-list')">Users</button>
+					<!-- <button @click="setActivePage('users-list')">Users</button> -->
+					<router-link to="/users">Users</router-link>
 				</li>
 			</ul>
 		</nav>
 	</header>
 </template>
 
-<script>
-export default {
-	emits: ['set-page'],
-	methods: {
-		setActivePage(page) {
-			this.$emit('set-page', page);
-		},
-	},
-};
+ <script>
+// export default {
+// 	emits: ['set-page'],
+// 	methods: {
+// 		setActivePage(page) {
+// 			this.$emit('set-page', page);
+// 		},
+// 	},
+// };
 </script>
 
 <style lang="scss" scoped>
@@ -43,11 +45,11 @@ header {
 			li {
 				margin: 0 2rem;
 
-				button {
+				a {
 					display: inline-block;
 					padding: 0.5rem 1.5rem;
-					font: inherit;
 					font-weight: 700;
+					text-decoration: none;
 					color: #000;
 					border: 1px solid transparent;
 					background: transparent;
