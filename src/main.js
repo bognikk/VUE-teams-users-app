@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     { path: '/teams', component: TeamsList }, //our-domain.com/teams => TeamsList
     { path: '/users', component: UsersList },
-    { path: '/teams/:teamId', component: TeamMembers }, // this rout will be active if user enters /teams/anythigAfterThat
+    { path: '/teams/:teamId', component: TeamMembers, props: true }, // this rout will be active if user enters /teams/anythigAfterThat
     // { path: '/teams/new' }, // this this is a different scenarion from one above
   ],
   linkActiveClass: 'active-router', // change from router-link-active
