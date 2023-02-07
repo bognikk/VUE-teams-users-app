@@ -9,6 +9,7 @@
 				:role="member.role"
 			></user-item>
 		</ul>
+		<router-link to="/teams/t2">Go to Team 2</router-link>
 	</section>
 </template>
 
@@ -31,19 +32,28 @@ export default {
 			members: [],
 		};
 	},
+	methods: {
+		loadTeamMembers(route) {
+			// this.$route.path; // /temas/t1
+			const teamId = route.params.teamId;
+			const selectedTeam = this.teams.find((team) => team.id === teamId);
+			const members = selectedTeam.members;
+			const selectedMembers = [];
+			for (const member of members) {
+				const selectedUser = this.users.find((user) => user.id === member);
+				selectedMembers.push(selectedUser);
+			}
+			this.members = selectedMembers;
+			this.teamName = selectedTeam.name;
+		},
+	},
 	created() {
-		// this.$route.path; // /temas/t1
-		const teamId = this.$route.params.teamId;
-		const selectedTeam = this.teams.find((team) => team.id === teamId);
-		const members = selectedTeam.members;
-		const selectedMembers = [];
-		for (const member of members) {
-			const selectedUser = this.users.find((user) => user.id === member);
-			selectedMembers.push(selectedUser);
-		}
-
-		this.members = selectedMembers;
-		this.teamName = selectedTeam.name;
+		this.loadTeamMembers(this.$route);
+	},
+	watch: {
+		$route(newRoute) {
+			this.loadTeamMembers(newRoute);
+		},
 	},
 };
 </script>
@@ -64,6 +74,27 @@ section {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+	}
+
+	> a {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 1.5rem;
+		margin: 1rem auto 0;
+		border: 1px solid transparent;
+		border-radius: 12px;
+		font-weight: 700;
+		color: #000;
+		background-color: #42b883;
+		text-decoration: none;
+		cursor: pointer;
+		text-align: center;
+
+		&:hover,
+		&:active {
+			background-color: #35495e;
+			color: #fff;
+		}
 	}
 }
 </style>
