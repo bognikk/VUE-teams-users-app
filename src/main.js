@@ -13,10 +13,16 @@ const router = createRouter({
     // { path: '/', component: TeamsList }, //or line under so we aways have /teams in URL
     { path: '/', redirect: '/teams' }, //or add alias: '/' to the line under
     {
+      name: 'teams',
       path: '/teams',
       component: TeamsList,
       children: [
-        { path: ':teamId', component: TeamMembers, props: true }, // this rout will be active if user enters /teams/anythigAfterThat ===> nested rout
+        {
+          name: 'team-members',
+          path: ':teamId',
+          component: TeamMembers,
+          props: true,
+        }, // this rout will be active if user enters /teams/anythigAfterThat ===> nested rout
         // { path: '/teams/new' }, // this this is a different scenarion from one above
       ],
     }, //our-domain.com/teams => TeamsList
