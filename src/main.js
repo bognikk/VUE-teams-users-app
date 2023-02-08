@@ -6,6 +6,8 @@ import TeamsList from './components/teams/TeamsList.vue';
 import UsersList from './components/users/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
 import NotFound from './components/nav/NotFound';
+import TeamsFooter from './components/teams/TeamsFooter.vue';
+import UsersFooter from './components/users/UsersFooter.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,7 +17,7 @@ const router = createRouter({
     {
       name: 'teams',
       path: '/teams',
-      component: TeamsList,
+      components: { default: TeamsList, footer: TeamsFooter },
       children: [
         {
           name: 'team-members',
@@ -26,7 +28,7 @@ const router = createRouter({
         // { path: '/teams/new' }, // this this is a different scenarion from one above
       ],
     }, //our-domain.com/teams => TeamsList
-    { path: '/users', component: UsersList },
+    { path: '/users', components: { default: UsersList, footer: UsersFooter } },
     { path: '/:notFound(.*)', component: NotFound }, // catches anything that doesn't exist and loads notFoud rout
     { path: '/:notFound(.*)', redirect: './teams' }, //catches anything that doesn't exist and redirect to /teams
   ],

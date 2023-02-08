@@ -46,6 +46,7 @@ li {
 	a {
 		display: inline-block;
 		padding: 0.5rem 1.5rem;
+		border-radius: 12px;
 		text-decoration: none;
 		font-weight: 700;
 		color: #000;

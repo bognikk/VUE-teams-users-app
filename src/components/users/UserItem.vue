@@ -36,7 +36,6 @@ li {
 	.role {
 		display: inline-block;
 		padding: 0.25rem 1rem;
-		border-radius: 40px;
 		color: #252525;
 		background-color: #ccc;
 
