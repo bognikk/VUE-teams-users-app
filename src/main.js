@@ -28,17 +28,43 @@ const router = createRouter({
         // { path: '/teams/new' }, // this this is a different scenarion from one above
       ],
     }, //our-domain.com/teams => TeamsList
-    { path: '/users', components: { default: UsersList, footer: UsersFooter } },
+    {
+      path: '/users',
+      components: { default: UsersList, footer: UsersFooter },
+      beforeEnter(to, from, next) {
+        console.log('users beforeEnter');
+        console.log(to, from);
+        next();
+      },
+    },
     { path: '/:notFound(.*)', component: NotFound }, // catches anything that doesn't exist and loads notFoud rout
     { path: '/:notFound(.*)', redirect: './teams' }, //catches anything that doesn't exist and redirect to /teams
   ],
   linkActiveClass: 'active-router', // change from router-link-active
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_, _2, savedPosition) {
+    // scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     }
     return { left: 0, top: 0 };
   },
+});
+
+router.beforeEach(function (to, from, next) {
+  console.log('Global beforeEach');
+  console.log(to, from);
+  // if (to.name === 'team-members') {
+  //   next();
+  // } else {
+  //   next({ name: 'team-members', params: { teamId: 't2' } });
+  // }
+  next();
+});
+
+router.afterEach(function (to, from) {
+  // sending analytics data
+  console.log('Global afterEach');
+  console.log(to, from);
 });
 
 const app = createApp(App);
