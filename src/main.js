@@ -33,6 +33,12 @@ const router = createRouter({
     { path: '/:notFound(.*)', redirect: './teams' }, //catches anything that doesn't exist and redirect to /teams
   ],
   linkActiveClass: 'active-router', // change from router-link-active
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return { left: 0, top: 0 };
+  },
 });
 
 const app = createApp(App);

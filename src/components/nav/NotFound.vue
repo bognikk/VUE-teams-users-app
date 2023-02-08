@@ -17,8 +17,4 @@ section {
 	text-align: center;
 	border-radius: 12px;
 }
-
-footer {
-	display: none !important;
-}
 </style>
