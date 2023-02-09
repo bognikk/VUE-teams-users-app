@@ -23,11 +23,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins.scss';
 li {
-	padding: 1rem;
-	margin: 1rem 0;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	border-radius: 12px;
+	@include card-styles;
 
 	h3 {
 		margin: 0.5rem 0;

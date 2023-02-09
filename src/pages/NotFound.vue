@@ -8,13 +8,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/mixins.scss';
+
 section {
-	display: block;
-	max-width: 40rem;
-	padding: 1rem;
-	margin: 1rem auto;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	text-align: center;
-	border-radius: 12px;
+	@include footer-styles;
 }
 </style>

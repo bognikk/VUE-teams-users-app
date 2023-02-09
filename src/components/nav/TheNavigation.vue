@@ -27,6 +27,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins.scss';
+
 header {
 	width: 100%;
 	height: 5rem;
@@ -46,21 +48,14 @@ header {
 				margin: 0 2rem;
 
 				a {
-					display: inline-block;
-					padding: 0.5rem 1.5rem;
-					font-weight: 700;
-					text-decoration: none;
-					color: #000;
-					border: 1px solid transparent;
-					background: transparent;
-					cursor: pointer;
-					box-sizing: border-box;
+					@include button-styles(inline-block, auto);
 
 					&:hover,
 					&:active,
 					&.active-router {
 						outline: 2px solid #000;
 						color: #000;
+						background: transparent;
 					}
 				}
 			}

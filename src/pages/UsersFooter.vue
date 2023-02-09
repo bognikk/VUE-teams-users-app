@@ -5,12 +5,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/mixins.scss';
+
 footer {
-	max-width: 20rem;
-	margin: 2.5rem auto;
-	padding: 0.5rem;
-	box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
-	border-radius: 12px;
-	text-align: center;
+	@include footer-styles;
 }
 </style>

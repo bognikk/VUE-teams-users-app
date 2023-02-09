@@ -67,12 +67,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins.scss';
+
 section {
-	margin: 2rem auto;
+	@include card-styles;
 	max-width: 40rem;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	padding: 1rem;
-	border-radius: 12px;
+	margin: 2rem auto;
 
 	h2 {
 		margin: 0.5rem 0;
@@ -85,24 +85,7 @@ section {
 	}
 
 	> a {
-		display: block;
-		width: 100%;
-		padding: 0.5rem 1.5rem;
-		margin: 1rem auto 0;
-		border: 1px solid transparent;
-		border-radius: 12px;
-		font-weight: 700;
-		color: #000;
-		background-color: #42b883;
-		text-decoration: none;
-		cursor: pointer;
-		text-align: center;
-
-		&:hover,
-		&:active {
-			background-color: #35495e;
-			color: #fff;
-		}
+		@include button-styles(block, 100%);
 	}
 }
 </style>

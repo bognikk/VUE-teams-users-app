@@ -28,11 +28,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins.scss';
 li {
-	padding: 1rem;
-	margin: 1rem 0;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	border-radius: 12px;
+	@include card-styles;
 
 	h3 {
 		margin: 0.5rem 0;
@@ -44,19 +42,8 @@ li {
 	}
 
 	a {
-		display: inline-block;
-		padding: 0.5rem 1.5rem;
-		border-radius: 12px;
-		text-decoration: none;
-		font-weight: 700;
-		color: #000;
-		background-color: #42b883;
-
-		&:hover,
-		&:active {
-			color: #fff;
-			background-color: #35495e;
-		}
+		@include button-styles(inline-block, auto);
+		margin: 0.5rem auto 0;
 	}
 }
 </style>
